@@ -22,7 +22,6 @@ export const LocationCreate = () => {
 
   console.log("data",locations);
 
-  // const filteredParentLocation = locations?.filter(location => location.parent_id === null);
   const filteredParentLocation = locations?.filter(
     (location) => location.parent_id == null || location.parent_id == undefined || location.parent_id == ""
   );
@@ -57,10 +56,7 @@ export const LocationCreate = () => {
           optionText="name"
           optionValue="id"
           emptyText="No parent"
-          // onChange={(event) => {
-            
 
-          // }}
         />
       </SimpleForm>
     </Create>

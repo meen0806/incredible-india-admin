@@ -13,7 +13,7 @@ const dataProvider = {
       const formData = new FormData();
   
       if (!params.data.parent_id) {
-        params.data.parent_id = null; // Set to null if no parent is selected
+        params.data.parent_id = null;
       }
 
       Object.keys(params.data).forEach((key) => {
