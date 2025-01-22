@@ -12,6 +12,10 @@ const dataProvider = {
     if (["locations", "categories", "places", "transport"].includes(resource)) {
       const formData = new FormData();
   
+      if (!params.data.parent_id) {
+        params.data.parent_id = null; // Set to null if no parent is selected
+      }
+
       Object.keys(params.data).forEach((key) => {
         if (key === "pictures" && Array.isArray(params.data[key])) {
           params.data[key].forEach((file) => {
@@ -197,5 +201,22 @@ const dataProvider = {
     }
     return Promise.reject("Unknown resource!");
   },
-};
+
+  deleteMany: (resource, params) => {
+    if (["locations", "categories", "places", "transport"].includes(resource)) {
+      const url = `${apiUrl}/${resource}`;
+  
+      return httpClient(url, {
+        method: "DELETE",
+      
+        body: JSON.stringify({ ids: params.ids }), // Send the array of ids
+      }).then(({ json }) => ({
+        data: json.ids || params.ids,  // Return the ids of the deleted items
+      }));
+    }
+  
+    return Promise.reject("Unknown resource!");
+  },
+
+  };
 export default dataProvider;

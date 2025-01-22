@@ -57,10 +57,10 @@ export const LocationCreate = () => {
           optionText="name"
           optionValue="id"
           emptyText="No parent"
-          onChange={(event) => {
+          // onChange={(event) => {
             
 
-          }}
+          // }}
         />
       </SimpleForm>
     </Create>
