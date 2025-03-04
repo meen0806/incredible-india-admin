@@ -38,7 +38,7 @@ const StyledImageField = styled(ImageField)({
       <TextField source="most_visited" label="Most Visited"/>
 
        <ReferenceField
-              source="parent_id" 
+              source="parent_id._id"  
               reference="locations" 
               label="Location"
             ></ReferenceField>

@@ -7,12 +7,18 @@ const transportTypeChoices = [
   { id: 'Bus Stand', name: 'Bus Stand' },
 ];
 
-export const TransportCreate = () => {
-  const { data: places, isLoading } = useGetList("places", {
+
+export const LocationTransportCreate = () => {
+  const { data: locations, isLoading } = useGetList("locations", {
     pagination: { page: 1, perPage: 10 },
     sort: { field: "name", order: "ASC" },
     filter: {},
   });
+
+  const filteredCity = locations?.filter(
+    (location) => location.parent_id !== null
+  );
+  console.log("filteredCity",filteredCity);
 
   if (isLoading) return <span>Loading...</span>;
 
@@ -21,10 +27,10 @@ export const TransportCreate = () => {
       <SimpleForm>
         <SelectInput
           label="Select Place"
-          source="place_id"
-          choices={places?.map((place) => ({
-            id: place.id,
-            name: place.name,
+          source="location_id"
+          choices={filteredCity?.map((location) => ({
+            id: location.id,
+            name: location.name,
           })) || []}
           optionText="name"
           optionValue="id"
@@ -39,7 +45,7 @@ export const TransportCreate = () => {
         />
 
         <TextInput source="transport_name" label="Transport Name" />
-        <NumberInput source="distance_km" label="Distance (km)" />
+        {/* <NumberInput source="distance_km" label="Distance (km)" /> */}
       </SimpleForm>
     </Create>
   );

@@ -12,8 +12,8 @@ import {
 } from "react-admin";
 
 
-export const TransportEdit = (props) => {
-  const { data: places, isLoading } = useGetList("places", {
+export const LocationTransportEdit = (props) => {
+  const { data: locations, isLoading } = useGetList("locations", {
     pagination: { page: 2, perPage: 10 },
     sort: { field: "name", order: "ASC" },
     filter: {},
@@ -34,9 +34,9 @@ export const TransportEdit = (props) => {
             <SelectInput
                       label="Select Palace"
                       source="place_id._id"
-                      choices={places?.map((places) => ({
-                        id: places.id,
-                        name: places.name,
+                      choices={locations?.map((location) => ({
+                        id: location.id,
+                        name: location.name,
                       }))}
                       optionText="name"
                       optionValue="id"
@@ -44,7 +44,7 @@ export const TransportEdit = (props) => {
             />
              <TextInput source='transport_type' label='Transport Type'/>
              <TextInput source='transport_name' label='Transport Name' />
-            <NumberInput source='distance_km' label='Distance (km)' />
+            {/* <NumberInput source='distance_km' label='Distance (km)' /> */}
         </SimpleForm>
     </Edit>
   );

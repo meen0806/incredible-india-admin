@@ -18,6 +18,5 @@ const authProvider = {
   };
   
   <Admin dataProvider={dataProvider} authProvider={authProvider}>
-    
   </Admin>;
   

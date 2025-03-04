@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Provider } from 'react-redux';
-import store from './redux/store';
+
 
 // import reportWebVitals from './reportWebVitals';
 
@@ -13,11 +13,11 @@ const theme = createTheme(); // You can customize the theme here
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    
     <ThemeProvider theme={theme}>
     <App />
   </ThemeProvider>
-  </Provider>
+  
  </React.StrictMode>
 );
 

@@ -21,26 +21,28 @@ import { PlaceEdit } from "./components/Place/PlaceEdit";
 import { TransportCreate } from "./components/Transport/TransportCreate";
 import { TransportList } from "./components/Transport/TransportList";
 import { TransportEdit } from "./components/Transport/TransportEdit";
-import { HomePage } from "./User/HomePage";
+import NearbyPlacesList from "./components/Place/NearByPlaceList";
+import CreateNearbyPlace from "./components/Place/CreateNearByPlace";
+import EditNearbyPlace from "./components/Place/EditNearByPlace";
+import { LocationTransportCreate } from "./components/Location/LocationTransportCreate";
+import {LocationTransportList } from "./components/Location/LocationTransportList";
+import {LocationTransportEdit} from "./components/Location/LocationTransportEdit";
+
 
 
 
 const App = () => (
-  <Router>
-    <Routes>
  
-       <Route path="/*" element={
+ 
+     
          <Admin dataProvider={dataProvider}>
                     <Resource name="locations" create={LocationCreate} edit={LocationEdit} list={LocationList} />
                     <Resource name="categories" create={CategoryCreate} list={CategoryList} edit={CategoryEdit} />
                     <Resource name="places" create={PlaceCreate} edit={PlaceEdit} list={PlaceList} />
                     <Resource name="transport" create={TransportCreate} edit={TransportEdit} list={TransportList} />
+                    <Resource name="locationtransport" create={LocationTransportCreate} edit={LocationTransportEdit} list={LocationTransportList}/>
+                    <Resource name="places/nearby_places" list={NearbyPlacesList} create={CreateNearbyPlace} edit={EditNearbyPlace}/>
+                
                 </Admin>
-     
-            } />
-             <Route path="/homepage" element={<HomePage />} />
-     </Routes>
-    </Router>
-);
-
+)
 export default App;
