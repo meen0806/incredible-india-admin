@@ -37,8 +37,8 @@ const App = () => (
      
          <Admin dataProvider={dataProvider}>
                     <Resource name="locations" create={LocationCreate} edit={LocationEdit} list={LocationList} />
-                    <Resource name="categories" create={CategoryCreate} list={CategoryList} edit={CategoryEdit} />
                     <Resource name="places" create={PlaceCreate} edit={PlaceEdit} list={PlaceList} />
+                    <Resource name="categories" create={CategoryCreate} list={CategoryList} edit={CategoryEdit} />
                     <Resource name="transport" create={TransportCreate} edit={TransportEdit} list={TransportList} />
                     <Resource name="locationtransport" create={LocationTransportCreate} edit={LocationTransportEdit} list={LocationTransportList}/>
                     <Resource name="places/nearby_places" list={NearbyPlacesList} create={CreateNearbyPlace} edit={EditNearbyPlace}/>
